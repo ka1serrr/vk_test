@@ -1,3 +1,8 @@
 .card {
-  height: 100px;
+  min-height: 100px;
+  cursor: pointer;
+}
+.caption {
+  display: flex;
+  flex-direction: column;
 }

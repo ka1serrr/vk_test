@@ -1,6 +1,8 @@
-import { Button, Card, CardGrid, Div, Group, Header } from "@vkontakte/vkui";
+import { Button, CardGrid, ContentCard, Div, Group, Header } from "@vkontakte/vkui";
 import { useFetchArticles } from "../api";
 import { useEffect } from "react";
+import dayjs from "dayjs";
+
 import styles from "./article.module.scss";
 
 export const Articles = () => {
@@ -26,9 +28,18 @@ export const Articles = () => {
       <CardGrid size='l'>
         {articles?.map((article) => {
           return (
-            <Card className={styles.card}>
-              <div>{article.title}</div>
-            </Card>
+            <ContentCard
+              key={article.id}
+              caption={
+                <div className={styles.caption}>
+                  <span>Likes: {article.score}</span>
+                  <span>Date: {dayjs.unix(article.time).format("DD MMMM YYYY")}</span>
+                </div>
+              }
+              className={styles.card}
+              header={article.title}
+              subtitle={`Author: ${article.by}`}
+            />
           );
         })}
       </CardGrid>

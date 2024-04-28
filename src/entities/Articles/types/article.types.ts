@@ -5,5 +5,7 @@ export type Article = {
   title: string;
   type: string;
   id: number;
+  time: number;
+  score: number;
   descendants: number;
 };

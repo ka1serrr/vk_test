@@ -17,7 +17,7 @@ export const useFetchArticles = () => {
         return articleResponse;
       });
 
-      Promise.all(articlePromises).then((data) => setArticles((articles) => [...articles, ...data]));
+      Promise.all(articlePromises).then((data) => setArticles(data));
     } catch (e) {
       setError(true);
     } finally {
