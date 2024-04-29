@@ -17,11 +17,11 @@ export const useFetchArticles = () => {
         return articleResponse;
       });
 
-      Promise.all(articlePromises).then((data) => setArticles(data));
+      Promise.all(articlePromises)
+        .then((data) => setArticles(data))
+        .then(() => setLoading(false));
     } catch (e) {
       setError(true);
-    } finally {
-      setLoading(false);
     }
   };
 
