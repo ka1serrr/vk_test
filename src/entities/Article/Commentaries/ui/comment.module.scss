@@ -1,0 +1,12 @@
+.comment {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 20px;
+  color: gray;
+}

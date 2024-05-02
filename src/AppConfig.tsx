@@ -5,19 +5,8 @@ import { RouterProvider } from "@vkontakte/vk-mini-apps-router";
 import "@vkontakte/vkui/dist/vkui.css";
 
 import { transformVKBridgeAdaptivity } from "~shared";
-import { router } from "./app/routes.ts";
-import { App } from "~app";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { App, router } from "~app";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 3,
-      refetchOnWindowFocus: false,
-      refetchInterval: 60000,
-    },
-  },
-});
 export const AppConfig = () => {
   const vkBridgeAppearance = useAppearance() || undefined;
   const vkBridgeInsets = useInsets() || undefined;
@@ -33,11 +22,9 @@ export const AppConfig = () => {
     >
       <AdaptivityProvider {...adaptivity}>
         <AppRoot mode='full' safeAreaInsets={vkBridgeInsets}>
-          <QueryClientProvider client={queryClient}>
-            <RouterProvider router={router}>
-              <App />
-            </RouterProvider>
-          </QueryClientProvider>
+          <RouterProvider router={router}>
+            <App />
+          </RouterProvider>
         </AppRoot>
       </AdaptivityProvider>
     </ConfigProvider>

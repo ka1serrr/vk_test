@@ -24,7 +24,7 @@
     "paths": {
       "~app": ["./app/index.ts"],
 
-      "~panels": ["./panels/index.ts"],
+      "~panels/*": ["./panels/*"],
 
       "~widgets": ["./widgets"],
       "~widgets/*": ["./widgets/*"],

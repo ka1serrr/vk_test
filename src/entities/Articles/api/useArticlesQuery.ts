@@ -10,8 +10,9 @@ export const useFetchArticles = () => {
     setLoading(true);
     try {
       const articleIds = await $fetch.get<ArticlesIds>({
-        path: `beststories.json?print=pretty&orderBy="$key"&limitToFirst=100`,
+        path: `newstories.json?print=pretty&orderBy="$key"&limitToFirst=100`,
       });
+
       const articlePromises = articleIds.map(async (articleId) => {
         const articleResponse = await $fetch.get<Article>({ path: `item/${articleId}.json?print=pretty` });
         return articleResponse;

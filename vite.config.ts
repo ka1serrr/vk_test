@@ -1,14 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import legacy from '@vitejs/plugin-legacy';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import legacy from "@vitejs/plugin-legacy";
 import * as path from "path";
 
 function handleModuleDirectivesPlugin() {
   return {
-    name: 'handle-module-directives-plugin',
+    name: "handle-module-directives-plugin",
     transform(code, id) {
-      if (id.includes('@vkontakte/icons')) {
-        code = code.replace(/"use-client";?/g, '');
+      if (id.includes("@vkontakte/icons")) {
+        code = code.replace(/"use-client";?/g, "");
       }
       return { code };
     },
@@ -23,13 +23,13 @@ function handleModuleDirectivesPlugin() {
  * The details are here: https://dev.vk.com/mini-apps/development/on-demand-resources.
  */
 export default defineConfig({
-  base: './',
+  base: "./",
 
   plugins: [
     react(),
     handleModuleDirectivesPlugin(),
     legacy({
-      targets: ['defaults', 'not IE 11'],
+      targets: ["defaults", "not IE 11"],
     }),
   ],
   resolve: {
@@ -37,13 +37,13 @@ export default defineConfig({
       "~app": path.resolve("./src/app"),
       "~entities": path.resolve("src/entities"),
       "~features": path.resolve("src/features"),
-      "~panels": path.resolve("./src/panels/index.ts"),
+      "~panels": path.resolve("./src/panels"),
       "~shared": path.resolve("src/shared"),
       "~widgets": path.resolve("src/widgets"),
     },
   },
 
   build: {
-    outDir: 'build',
+    outDir: "build",
   },
 });

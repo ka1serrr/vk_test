@@ -39,13 +39,13 @@ export const Articles = memo(() => {
     <Group
       header={
         <Header mode='primary' size='large'>
-          Статьи
+          Articles
         </Header>
       }
     >
       <Div>
         <Button stretched size='l' mode='outline' onClick={() => fetchArticles()}>
-          Обновить статьи
+          Refresh articles
         </Button>
       </Div>
 

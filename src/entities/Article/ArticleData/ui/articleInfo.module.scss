@@ -1,0 +1,20 @@
+.heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.author {
+  font-size: 22px;
+}
+
+.link {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.mainData {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
